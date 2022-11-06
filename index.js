@@ -1,8 +1,7 @@
 // require 3 packages: fs, inquirer, generateMarkdown
 let inquirer = require('inquirer');
 let { writeFile } = require('fs');
-let { generateMarkdown } = require('./utils/generateMarkdown');
-
+let markdown = require('./utils/generateMarkdown');
 //  questions for user input
 const questions = [
     { 
@@ -12,7 +11,7 @@ const questions = [
     },
     { 
         type: 'input',
-        message: 'Provide a succinct description for your project detailing what it does.',
+        message: 'Provide a description for your project detailing what it does.',
         name: 'description'
     },
     { 
@@ -61,10 +60,6 @@ function init() {
     .then( (response) => {
         const { title, description, install, instructions, contribution, test, license, github, email } = response;
         const projectName = `${title}-README.md `;
-        console.log(title);
-        console.log(projectName);
-        console.log(description);
-        console.log(install);
         
         
         writeToFile(projectName, response)
@@ -73,7 +68,10 @@ function init() {
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    writeFile(fileName, data, () => {
+    const readMe = markdown(data);
+    writeFile(fileName, readMe, 'utf-8', (err) => {
+        if (err) throw err;
+        console.log('A readme file was generated!');
         console.log(`Data written to ${fileName}`);
     });
 }

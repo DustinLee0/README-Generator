@@ -59,7 +59,7 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
   
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
 
 ## Description
 ${data.description}
@@ -67,8 +67,8 @@ ${data.description}
 ## Table of Contents
 - [Installation Instructions](#installation-instructions)
 - [Usage](#usage)
-- [Contributions](#contribution)
-- [Test](#test)
+- [Contributions](#contributions)
+- [Test](#tests)
 
 ## Installation Instructions
 ${data.install}
@@ -76,14 +76,17 @@ ${data.install}
 ## Usage
 ${data.instructions}
 
+${renderLicenseSection(data.license)}
+
 ## Contributions
 ${data.contribution}
 
 ## Tests
 ${data.test}
 
-${renderLicenseSection(data.license)}
-
+## Questions
+If there are any questions or issues about the repository, you can contact me at [${data.email}](${data.email}).\n
+More of my work can be found on my Github repository at [${data.github}](https://github.com/${data.github}).
 `;
 }
 
