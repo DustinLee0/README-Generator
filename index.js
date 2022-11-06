@@ -1,7 +1,7 @@
 // require 3 packages: fs, inquirer, generateMarkdown
 let inquirer = require('inquirer');
 let { writeFile } = require('fs');
-let generateMd = require('./Assets/utils/generateMarkdown');
+let { generateMarkdown } = require('./utils/generateMarkdown');
 
 //  questions for user input
 const questions = [
@@ -35,12 +35,13 @@ const questions = [
         message: 'Provide instructions on how to test your project.',
         name: 'test'
     },
-    //  LICENSE: CREATES BADGE AT TOP OF README AND NOTICE ADDED
-    // { 
-    //     type: 'list',
-    //     message: 'Which license would you like to use for your project?',
-    //     name: 'license'
-    // },
+    { 
+        type: 'list',
+        message: 'Which license would you like to use for your project?',
+        choices: ['Apache License 2.0', 'Boost Software License 1.0', 'MIT License', 'Eclipse Public License 1.0', 'Mozilla Public License 2.0'],
+        name: 'license'
+    },
+    //  Apache License 2.0, Boost Software License 1.0, MIT License, Eclipse Public License 1.0, Mozilla Public License 2.0
     {
         type: 'input',
         message: 'Enter your Github username.',
@@ -58,12 +59,15 @@ function init() {
     inquirer
     .prompt(questions)
     .then( (response) => {
-        console.log(response.title);
-        console.log(response.description);
-        console.log(response.install);
         const { title, description, install, instructions, contribution, test, license, github, email } = response;
+        const projectName = `${title}-README.md `;
+        console.log(title);
+        console.log(projectName);
+        console.log(description);
+        console.log(install);
         
         
+        writeToFile(projectName, response)
     })
 }
 
