@@ -37,7 +37,6 @@ function renderLicenseLink(license) {
     return mozilla;
   } else if (license === 'None') {
     license = "";
-    console.log(license)
     return license;
   }
 }

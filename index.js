@@ -1,7 +1,7 @@
 // require 3 packages: fs, inquirer, generateMarkdown
-let inquirer = require('inquirer');
-let { writeFile } = require('fs');
-let markdown = require('./utils/generateMarkdown');
+const inquirer = require('inquirer');
+const { writeFile } = require('fs');
+const markdown = require('./utils/generateMarkdown');
 //  questions for user input
 const questions = [
     { 
@@ -45,7 +45,6 @@ const questions = [
         choices: ['Apache License 2.0', 'Boost Software License 1.0', 'MIT License', 'Mozilla Public License 2.0', 'None'],
         name: 'license'
     },
-    //  Apache License 2.0, Boost Software License 1.0, MIT License, Eclipse Public License 1.0, Mozilla Public License 2.0
     {
         type: 'input',
         message: 'Enter your Github username.',
