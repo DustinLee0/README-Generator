@@ -14,8 +14,8 @@ function renderLicenseBadge(license) {
   } else if (license === 'Mozilla Public License 2.0') {
     const mozilla = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
     return mozilla;
-  } else {
-    const license = '';
+  } else if (license === 'None') {
+    const license = "";
     return license;
   }
 }
@@ -35,8 +35,9 @@ function renderLicenseLink(license) {
   } else if (license === 'Mozilla Public License 2.0') {
     const mozilla = 'https://opensource.org/licenses/MPL-2.0';
     return mozilla;
-  } else {
-    const license = '';
+  } else if (license === 'None') {
+    license = "";
+    console.log(license)
     return license;
   }
 }
@@ -44,19 +45,35 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
+  let permit = license;
+  if (permit === 'None') {
+    console.log('No license');
+    return;
+  }
   return `## License
-  [${license}](${renderLicenseLink(license)})
+  This project is licensed under the [${license}](${renderLicenseLink(license)})
+  `
+}
+
+function installCmd(commands) {
+  let cmd = commands;
+  if (cmd === "") {
+    return;
+  }
+  return `\`\`\`
+  ${cmd}
+  \`\`\`
   `
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  const { title, description, install, commands, instructions, contribution, test, license, github, email } = data;
+  return `# ${title}
   
-${renderLicenseBadge(data.license)}
-
+${renderLicenseBadge(license)}
 ## Description
-${data.description}
+${description}
 
 ## Table of Contents
 - [Installation Instructions](#installation-instructions)
@@ -65,22 +82,23 @@ ${data.description}
 - [Test](#tests)
 
 ## Installation Instructions
-${data.install}
+${install}
+${installCmd(commands)}
 
 ## Usage
-${data.instructions}
-
-${renderLicenseSection(data.license)}
+${instructions}
 
 ## Contributions
-${data.contribution}
+${contribution}
 
 ## Tests
-${data.test}
+${test}
+
+${renderLicenseSection(license)}
 
 ## Questions
-If there are any questions or issues about the repository, you can contact me at [${data.email}](${data.email}).\n
-More of my work can be found on my Github repository at [${data.github}](https://github.com/${data.github}).
+If there are any questions or issues about the repository, you can contact me at [${email}](${email}).\n
+More of my work can be found on my Github repository at [${github}](https://github.com/${github}).
 `;
 }
 
