@@ -37,7 +37,7 @@ const questions = [
     { 
         type: 'list',
         message: 'Which license would you like to use for your project?',
-        choices: ['Apache License 2.0', 'Boost Software License 1.0', 'MIT License', 'Eclipse Public License 1.0', 'Mozilla Public License 2.0'],
+        choices: ['Apache License 2.0', 'Boost Software License 1.0', 'MIT License', 'Mozilla Public License 2.0', 'None'],
         name: 'license'
     },
     //  Apache License 2.0, Boost Software License 1.0, MIT License, Eclipse Public License 1.0, Mozilla Public License 2.0
@@ -50,7 +50,7 @@ const questions = [
         type: 'input',
         message: 'Enter your email address.',
         name: 'email'
-    },
+    }
 ];
 
 // TODO: Create a function to initialize app
@@ -59,7 +59,7 @@ function init() {
     .prompt(questions)
     .then( (response) => {
         const { title, description, install, instructions, contribution, test, license, github, email } = response;
-        const projectName = `${title}-README.md `;
+        const projectName = `${title}-README.md`;
         
         
         writeToFile(projectName, response)
@@ -69,7 +69,7 @@ function init() {
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     const readMe = markdown(data);
-    writeFile(fileName, readMe, 'utf-8', (err) => {
+    writeFile(fileName, readMe, (err) => {
         if (err) throw err;
         console.log('A readme file was generated!');
         console.log(`Data written to ${fileName}`);
