@@ -11,17 +11,22 @@ const questions = [
     },
     { 
         type: 'input',
-        message: 'Provide a description for your project detailing what it does.',
+        message: 'Provide a description for your project detailing what problem it solves, what your motivation was, and what was learned.',
         name: 'description'
     },
     { 
         type: 'input',
-        message: 'Provide installation instructions for your project.',
+        message: 'Provide installation instructions for your project.(Installation commands will be asked next)',
         name: 'install'
     },
     { 
         type: 'input',
-        message: 'Provide instructions on how to use the app/project.',
+        message: 'Provide installation commands to enter in the CLI.',
+        name: 'commands'
+    },
+    { 
+        type: 'input',
+        message: 'Provide instructions on how to use the app/project. Provide examples if needed.',
         name: 'instructions'
     },
     { 
@@ -58,10 +63,8 @@ function init() {
     inquirer
     .prompt(questions)
     .then( (response) => {
-        const { title, description, install, instructions, contribution, test, license, github, email } = response;
+        const { title } = response;
         const projectName = `${title}-README.md`;
-        
-        
         writeToFile(projectName, response)
     })
 }
