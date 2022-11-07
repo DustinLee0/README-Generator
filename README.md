@@ -17,7 +17,8 @@ To invoke this application, navigate to the corresponding directory and run the 
 ```
 node index
 ```
-The application will prompt the user with questions about the project. Once the user answers all the questions, a *README.md* file will be generated with the information the user has input. 
+The application will prompt the user with questions about the project. Once the user answers all the questions, a *README.md* file will be generated with the information the user has input.   
+
 ![app-testingIMG](./Assets/Images/README%20app.jpeg)
 
 ## Contribution
