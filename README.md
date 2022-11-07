@@ -2,7 +2,7 @@
 
 When building applications for clients, it is imperative to have a descriptive, clear and a user-friendly README markdown file that indicates installation procedures, instructions on how to use the app and any other pertinent information about the app to give a casual experience for the user.  
 
-This is an application using the CLI and user input to create a professional README markdown file.
+This is an application using the CLI that takes user input to create a professional README markdown file for upcoming projects.
 
 To invoke this application, navigate to the corresponding directory and run the following command:  
 ```
