@@ -1,7 +1,7 @@
 // require 3 packages: fs, inquirer, generateMarkdown
 const inquirer = require('inquirer');
 const { writeFile } = require('fs');
-const markdown = require('./utils/generateMarkdown');
+const markdown = require('./Assets/utils/generateMarkdown');
 //  questions for user input
 const questions = [
     { 
