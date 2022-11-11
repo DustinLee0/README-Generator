@@ -4,6 +4,9 @@ When building applications for clients, it is imperative to have a descriptive, 
 
 This is an application using the CLI([Node.js](https://nodejs.org/dist/latest-v18.x/docs/api/)) to take user input and create a professional README markdown file for upcoming projects quickly.
 
+Here is a quick video demonstrating the installation and the use of the app:  
+[https://drive.google.com/file/d/1Iw27YC0brhH3J88f7urzuOZJnt2G0DW7/view](https://drive.google.com/file/d/1Iw27YC0brhH3J88f7urzuOZJnt2G0DW7/view)
+
 ## Installation 
 The dependencies needed to run this application are the *File System* module included within node.js and the *inquirer.js* module.
 
